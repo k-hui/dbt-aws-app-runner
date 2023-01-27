@@ -25,6 +25,20 @@ pip install httpx
 pip install pytest
 ```
 
+### Initialize dbt project
+
+```bash
+pip install dbt-postgres
+# initialize dbt project
+dbt init example
+# clone the profiles.yml to local project
+cp ~/.dbt/profiles.yml ./example
+# debug
+dbt debug --project-dir example --profiles-dir example
+# test dbt run
+dbt run --project-dir example --profiles-dir example
+```
+
 ### Development
 
 ```bash
@@ -39,15 +53,13 @@ gunicorn -k uvicorn.workers.UvicornWorker
 ```bash
 curl -X POST http://127.0.0.1:8000/dbt \
   -H 'Content-Type: application/json' \
-  -d '{"command":"dbt debug"}'
+  -d '{"command":"dbt debug --project-dir example --profiles-dir example"}'
+  
+curl -X POST http://127.0.0.1:8000/dbt \
+  -H 'Content-Type: application/json' \
+  -d '{"command":"dbt run --project-dir example --profiles-dir example"}'
 ```
 
 ## Deployment
 
 - apprunner.yaml
-
-```bash
-aws apprunner start-deployment \
-  --region us-east-1 \
-  --cli-input-json file://input.json
-```
