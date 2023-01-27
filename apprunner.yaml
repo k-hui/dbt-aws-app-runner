@@ -13,7 +13,7 @@ build:
       value: 'dev'
 run:
   runtime-version: 3.8.15
-  command: gunicorn -k uvicorn.workers.UvicornWorker
+  command: uvicorn app.main:app
   network:
     port: 8000
     env: 80 # MY_APP_PORT
