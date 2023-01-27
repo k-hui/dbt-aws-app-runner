@@ -29,7 +29,7 @@ pip install pytest
 
 ```bash
 # for development
-uvicorn main:app --reload
+uvicorn app.main:app --reload
 # for production
 gunicorn -k uvicorn.workers.UvicornWorker
 ```
