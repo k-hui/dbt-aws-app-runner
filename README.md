@@ -45,3 +45,9 @@ curl -X POST http://127.0.0.1:8000/dbt \
 ## Deployment
 
 - apprunner.yaml
+
+```bash
+aws apprunner start-deployment \
+  --region us-east-1 \
+  --cli-input-json file://input.json
+```

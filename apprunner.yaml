@@ -13,7 +13,7 @@ build:
       value: 'dev'
 run:
   runtime-version: 3.8.15
-  command: uvicorn app.main:app
+  command: uvicorn app.main:app --host 0.0.0.0 --port 8000
   network:
     port: 8000
     env: 80 # MY_APP_PORT
