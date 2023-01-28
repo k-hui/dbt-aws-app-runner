@@ -17,6 +17,7 @@ run:
   network:
     port: 8000
     env: 80 # MY_APP_PORT
+  # https://docs.aws.amazon.com/apprunner/latest/dg/env-variable-manage.html
   env:
     - name: STAGE
       value: 'dev'
