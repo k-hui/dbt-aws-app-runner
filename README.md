@@ -73,10 +73,6 @@ sh debug-remote.sh
 
 ## Deployment
 
-### Update apprunner.yaml
-
-```bash
-cp apprunner.yaml.example apprunner.yaml
-```
+### Update apprunner.yaml (if using custom file)
 
 - Update your database configurations
