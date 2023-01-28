@@ -42,10 +42,10 @@ dbt run --project-dir example --profiles-dir example
 ### Development
 
 ```bash
-# for development
+# for local
 uvicorn app.main:app --reload
 # for production
-gunicorn -k uvicorn.workers.UvicornWorker
+uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
 
 ### Test
@@ -53,11 +53,11 @@ gunicorn -k uvicorn.workers.UvicornWorker
 ```bash
 curl -X POST http://127.0.0.1:8000/dbt \
   -H 'Content-Type: application/json' \
-  -d '{"command":"dbt debug --project-dir example --profiles-dir example"}'
+  -d '{"cmd":"dbt debug --project-dir example --profiles-dir example"}'
   
 curl -X POST http://127.0.0.1:8000/dbt \
   -H 'Content-Type: application/json' \
-  -d '{"command":"dbt run --project-dir example --profiles-dir example"}'
+  -d '{"cmd":"dbt run --project-dir example --profiles-dir example"}'
 ```
 
 ## Deployment
