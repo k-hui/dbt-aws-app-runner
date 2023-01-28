@@ -73,6 +73,18 @@ sh debug-remote.sh
 
 ## Deployment
 
-### Update apprunner.yaml (if using custom file)
+### Build command:
+
+```bash
+sudo yum install git -y; pip install -r requirements.txt;
+```
+
+### Start command:
+
+```bash
+uvicorn app.main:app --host 0.0.0.0 --port 8000
+```
+
+### Update apprunner.yaml (if Use a configuration file)
 
 - Update your database configurations
