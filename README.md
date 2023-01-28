@@ -60,6 +60,23 @@ curl -X POST http://127.0.0.1:8000/dbt \
   -d '{"cmd":"dbt run --project-dir example --profiles-dir example"}'
 ```
 
+### Test remote database
+
+```bash
+# first call this
+export $(grep -v '^#' .env | xargs)
+# then
+dbt debug --project-dir example --profiles-dir example
+# combine
+sh debug-remote.sh
+```
+
 ## Deployment
 
-- apprunner.yaml
+### Update apprunner.yaml
+
+```bash
+cp apprunner.yaml.example apprunner.yaml
+```
+
+- Update your database configurations
